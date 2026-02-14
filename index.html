@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Habit Tracker — Front Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="app" role="application" aria-label="Habit Tracker front page">
+            <header class="top">
+                <div class="title">
+                    <div class="datebox">
+                        <div class="big">Today</div>
+                        <div class="small" id="todayDate"></div>
+                    </div>
+                </div>
+                <div class="streak center">
+                    <div style="text-align:right">
+                        <div class="small">Current Streak</div>
+                        <div id="headerStreak" style="font-weight:800">0 🔥</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="controls">
+                <div class="search" style="min-width:200px">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21l-4.35-4.35" stroke="#74829a" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="11" cy="11" r="6" stroke="#74829a" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <input id="searchInput" placeholder="Search habits..." />
+                    <button class="btn ghost" id="addHabitBtn">+ New</button>
+                </div>
+
+                <div class="filters" id="filters">
+                    <button class="chip active" data-cat="All">All</button>
+                    <button class="chip" data-cat="Fitness">Fitness</button>
+                    <button class="chip" data-cat="Study">Study</button>
+                    <button class="chip" data-cat="Health">Health</button>
+                    <button class="chip" data-cat="Mind">Mind</button>
+                    <button class="chip" data-cat="Creative">Creative</button>
+                    <button class="chip" data-cat="Work">Work</button>
+                </div>
+
+                <div class="toggles">
+                    <div class="switch toggle">
+                        <label class="muted">Focus Mode 🎯</label>
+                        <input id="focusToggle" type="checkbox" />
+                    </div>
+                    <div class="switch">
+                        <button class="btn primary" id="startChallengeBtn">Start Challenge 🏆</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="st-left">
+                    <div class="list" id="habitList"></div>
+                </div>
+
+                <aside class="st-right side">
+                    <div class="section reward center" style="flex-direction:column;align-items:stretch">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div class="small">XP</div>
+                                <div style="font-weight:800;font-size:18px" id="xpCount">0</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div class="small">Coins</div>
+                                <div style="font-weight:800;font-size:18px" id="coinCount">0</div>
+                            </div>
+                        </div>
+                        <div class="meter" aria-hidden style="margin-top:10px"><i id="xpMeter" style="width:0%"></i>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-top:8px">
+                            <button class="btn" id="claimRewardBtn">Claim Reward 🎁</button>
+                            <select id="themeSelect" class="btn ghost">
+                                <option value="default">Theme: Default</option>
+                                <option value="sunset">Theme: Sunset</option>
+                                <option value="ocean">Theme: Ocean</option>
+                                <option value="midnight">Theme: Midnight</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section" style="padding:10px">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                            <div class="small">Mood of the day</div>
+                            <div class="muted small" id="moodLabel">—</div>
+                        </div>
+                        <div class="mood">
+                            <button data-mood="4">😄</button>
+                            <button data-mood="3">😐</button>
+                            <button data-mood="2">😔</button>
+                            <button data-mood="1">😤</button>
+                        </div>
+                    </div>
+
+                    <div class="section" style="padding:10px">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <div class="small">Quick Actions</div>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+                            <button class="btn ghost" id="resetBtn">Reset Day</button>
+                            <button class="btn" id="addDemoBtn">Add Demo Habit</button>
+                        </div>
+                    </div>
+
+                    <div class="section" style="padding:10px">
+                        <div class="small">Unlocked Themes</div>
+                        <div id="unlockedThemes" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"></div>
+                    </div>
+                </aside>
+            </div>
+
+            <footer class="attribution">Minimal, mobile-friendly demo • data saved locally (localStorage)</footer>
+        </div>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+    <!-- Habit creation modal -->
+    <div class="modal-backdrop" id="habitModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal" role="document">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <div style="font-weight:800">Create habit</div>
+                <button class="btn ghost" id="closeHabitModal">✕</button>
+            </div>
+            <form id="habitForm">
+                <div class="form-row">
+                    <label for="habitName">Name</label>
+                    <input id="habitName" type="text" placeholder="e.g. Read 20 minutes" required />
+                </div>
+                <div class="form-row">
+                    <label for="habitCategory">Category</label>
+                    <select id="habitCategory" required>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Study">Study</option>
+                        <option value="Health">Health</option>
+                        <option value="Mind">Mind</option>
+                        <option value="Creative">Creative</option>
+                        <option value="Work">Work</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="habitStartProgress">Start %</label>
+                    <input id="habitStartProgress" type="number" min="0" max="100" value="0" />
+                </div>
+                <div class="form-row">
+                    <label for="habitIsDaily" style="cursor:pointer">Daily Task</label>
+                    <input id="habitIsDaily" type="checkbox" style="flex:0; width:20px; height:20px; cursor:pointer" />
+                    <span class="muted" style="font-size:12px; margin-left:8px">(Repeats daily, doesn't delete)</span>
+                </div>
+                <div id="habitFormError" class="error" style="display:none"></div>
+                <div class="form-actions">
+                    <button type="button" class="btn ghost" id="cancelHabit">Cancel</button>
+                    <button type="submit" class="btn primary">Add Habit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <template id="cardTpl">
+        <div class="card" data-id="{{id}}">
+            <div class="row">
+                <div class="meta">
+                    <div class="tag">{{category}}</div>
+                    <div>
+                        <div class="name">{{name}}</div>
+                        <small class="muted">Streak: <strong>{{streak}}</strong> • Last: {{lastDone}}</small>
+                    </div>
+                </div>
+                <div style="text-align:right">
+                    <div class="progress" title="Progress"><i style="width:{{progress}}%"></i></div>
+                    <div class="muted small">{{progress}}% complete</div>
+                </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <div class="actions">
+                    <button class="btn doneBtn">✅ Done</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

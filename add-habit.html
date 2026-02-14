@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Habit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the add page to center the form */
+        .add-page-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .back-nav {
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(-5px);
+        }
+
+        .add-form-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.5s ease;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container add-page-container">
+        <nav class="back-nav">
+            <a href="index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </a>
+        </nav>
+
+        <div class="add-form-card">
+            <h2>Create New Habit</h2>
+
+            <div class="form-group">
+                <label>Habit Name</label>
+                <input type="text" id="habit-name" placeholder="e.g. Morning Jog, Read Book" class="input-field"
+                    autofocus>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select id="habit-category" class="input-field">
+                    <option value="fitness">Fitness 🏃‍♂️</option>
+                    <option value="study">Study 📚</option>
+                    <option value="health">Health 🍏</option>
+                    <option value="mind">Mind 🧘</option>
+                    <option value="creative">Creative 🎨</option>
+                    <option value="work">Work 💼</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="habit-timer">
+                    <span>Enable Timer (for timed activities)</span>
+                </label>
+            </div>
+
+            <button id="save-btn" class="btn-primary">
+                <i class="fa-solid fa-check"></i> Save Habit
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Habit Saved!</div>
+
+    <script>
+        document.getElementById('save-btn').addEventListener('click', () => {
+            const name = document.getElementById('habit-name').value;
+            const category = document.getElementById('habit-category').value;
+            const hasTimer = document.getElementById('habit-timer').checked;
+            const toast = document.getElementById('toast');
+
+            if (!name.trim()) {
+                alert('Please enter a habit name');
+                return;
+            }
+
+            // Get existing habits
+            const habits = JSON.parse(localStorage.getItem('habits')) || [];
+
+            // Add new habit
+            const newHabit = {
+                id: Date.now().toString(),
+                name: name,
+                category: category,
+                streak: 0,
+                completedToday: false,
+                hasTimer: hasTimer,
+                isTopPriority: false,
+                createdAt: new Date().toISOString()
+            };
+
+            habits.push(newHabit);
+            localStorage.setItem('habits', JSON.stringify(habits));
+
+            // Show toast and redirect
+            toast.innerText = "Habit Saved Successfully!";
+            toast.classList.add('visible');
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
