@@ -1,420 +1,162 @@
-<p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
-</p>
+<p align="center"> <img src="./img.png" alt="Project Banner" width="100%"> </p>
+Habit Tracker Website 🎯
+Basic Details
+Team Name: [Epic Taffy]
+Team Members
 
-# [Project Name] 🎯
+Member 1: [Jisliya C J] - [Jyothi Engineering College]
 
-## Basic Details
+Member 2: [Devika Mahesh] - [Jyothi Engineering College]
 
-### Team Name: [Name]
+Hosted Project Link
 
-### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+[https://habbit-tracker-seven-tan.vercel.app/]
 
-### Hosted Project Link
-[mention your project hosted link here]
+Project Description
 
-### Project Description
-[2-3 lines about what your project does]
+A clean, reminder-based habit tracker website that helps users track daily routines, build consistency, monitor progress, and stay motivated with streaks, rewards, and insights.
 
-### The Problem statement
-[What problem are you solving?]
+Problem Statement
 
-### The Solution
-[How are you solving it?]
+People struggle to maintain healthy habits because they lack a structured way to track routines, forget to complete tasks, and don’t receive feedback or motivational insights.
 
----
+Solution
 
-## Technical Details
+A habit tracker website that allows users to add habits, track progress, view streaks, receive reminders, track moods, enable Focus Mode, start challenges, and earn rewards—all saved locally for persistence.
 
-### Technologies/Components Used
+Technical Details
+Technologies/Components Used
 
-**For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+For Software:
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+Languages used: HTML, CSS, JavaScript
 
----
+Frameworks used: None (Vanilla JS Project)
 
-## Features
+Libraries used: None (Uses localStorage and native browser APIs)
+
+Tools used: VS Code, Live Server, Browser DevTools, Git, GitHub, Netlify/Vercel (optional)
+
+For Hardware:
+
+Not applicable (purely web-based)
+
+Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
 
----
+Feature 1: Daily Habit Tracking – Add habits, mark them done, view streaks and progress.
 
-## Implementation
+Feature 2: Search & Filter – Search habits by name and filter by category (Fitness, Study, Health, etc.).
 
-### For Software:
+Feature 3: Reward & XP System – Earn XP and coins, unlock rewards and themes.
 
-#### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
-```
+Feature 4: Focus Mode & Challenges – Enable distraction-free mode and start habit-building challenges.
 
-#### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
+Implementation
+For Software:
+Installation
+# Clone the project
+git clone https://github.com/your-username/habit-tracker.git
 
-### For Hardware:
+# Navigate into project folder
+cd habit-tracker
 
-#### Components Required
-[List all components needed with specifications]
+# Open in VS Code and install Live Server extension if not already installed
 
-#### Circuit Setup
-[Explain how to set up the circuit]
+Run
+# Option 1: Using Live Server (recommended)
+# Right-click index.html → Open with Live Server
 
----
+# Option 2: Open index.html directly in your browser
 
-## Project Documentation
+For Hardware:
 
-### For Software:
+Not applicable
 
-#### Screenshots (Add at least 3)
+Project Documentation
+For Software:
+Screenshots
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+Dashboard displaying habits, streaks, and progress bars.
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
 
-#### Diagrams
+Habit creation modal and adding a new habit.
 
-**System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+Focus Mode and Start Challenge features in action.
 
-**Application Workflow:**
+Diagrams
 
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
+System Architecture:
 
----
 
-### For Hardware:
+Shows how UI, JavaScript logic, and localStorage interact to manage habits, streaks, rewards, moods, and themes.
 
-#### Schematic & Circuit
+Application Workflow:
 
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+Workflow starts when a habit is added, saved in localStorage, displayed on the dashboard, and updated as the user marks habits done or interacts with features like Focus Mode or Challenges.
 
-#### Build Photos
+Additional Documentation
+<img width="1920" height="1080" alt="Main page(1)" src="https://github.com/user-attachments/assets/5f23248b-77cd-49d4-818d-0b7d315825fa" />
+<img width="1920" height="1080" alt="Focus Mode(3)" src="https://github.com/user-attachments/assets/029f77df-ae65-4fa4-a8f5-6c9af3c820fc" />
+<img width="1920" height="1080" alt="Start Challenge(2)" src="https://github.com/user-attachments/assets/c40c5466-8cf3-416f-ab67-e8bfcc31d759" />
 
-![Team](Add photo of your team here)
 
-![Components](Add photo of your components here)
-*List out all components shown*
+Project Demo
+Video
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+[https://drive.google.com/file/d/1lA18maCWYHmGmtJFUBnc9H2ftJA4k15m/view?usp=sharing]
+Demonstrates adding and completing habits, tracking streaks and rewards, mood selection, Focus Mode, and Challenges.
 
-![Final](Add photo of final product here)
-*Explain the final build*
+Additional Demos
 
----
+Live Demo: [Add your hosted project link here]
 
-## Additional Documentation
+AI Tools Used (Optional – Transparency Bonus)
 
-### For Web Projects with Backend:
+Tool Used: ChatGPT
+Purpose:
 
-#### API Documentation
+Generated code snippets for habit logic, streak tracking, and UI updates
 
-**Base URL:** `https://api.yourproject.com`
+Assisted in creating workflow explanations, captions, and documentation
 
-##### Endpoints
+Suggested UI/UX improvements and debugging help
 
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
-{
-  "status": "success",
-  "data": {}
-}
-```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-```
-
-[Add more endpoints as needed...]
-
----
-
-### For Mobile Apps:
-
-#### App Flow Diagram
-
-![App Flow](docs/app-flow.png)
-*Explain the user flow through your application*
-
-#### Installation Guide
-
-**For Android (APK):**
-1. Download the APK from [Release Link]
-2. Enable "Install from Unknown Sources" in your device settings:
-   - Go to Settings > Security
-   - Enable "Unknown Sources"
-3. Open the downloaded APK file
-4. Follow the installation prompts
-5. Open the app and enjoy!
-
-**For iOS (IPA) - TestFlight:**
-1. Download TestFlight from the App Store
-2. Open this TestFlight link: [Your TestFlight Link]
-3. Click "Install" or "Accept"
-4. Wait for the app to install
-5. Open the app from your home screen
-
-**Building from Source:**
-```bash
-# For Android
-flutter build apk
-# or
-./gradlew assembleDebug
-
-# For iOS
-flutter build ios
-# or
-xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-```
-
----
-
-### For Hardware Projects:
-
-#### Bill of Materials (BOM)
-
-| Component | Quantity | Specifications | Price | Link/Source |
-|-----------|----------|----------------|-------|-------------|
-| Arduino Uno | 1 | ATmega328P, 16MHz | ₹450 | [Link] |
-| LED | 5 | Red, 5mm, 20mA | ₹5 each | [Link] |
-| Resistor | 5 | 220Ω, 1/4W | ₹1 each | [Link] |
-| Breadboard | 1 | 830 points | ₹100 | [Link] |
-| Jumper Wires | 20 | Male-to-Male | ₹50 | [Link] |
-| [Add more...] | | | | |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
-![Step 1](images/assembly-step1.jpg)
-*Caption: All components laid out*
-
-**Step 2: Build the Power Supply**
-1. Connect the power rails on the breadboard
-2. Connect Arduino 5V to breadboard positive rail
-3. Connect Arduino GND to breadboard negative rail
-![Step 2](images/assembly-step2.jpg)
-*Caption: Power connections completed*
-
-**Step 3: Add Components**
-1. Place LEDs on breadboard
-2. Connect resistors in series with LEDs
-3. Connect LED cathodes to GND
-4. Connect LED anodes to Arduino digital pins (2-6)
-![Step 3](images/assembly-step3.jpg)
-*Caption: LED circuit assembled*
-
-**Step 4: [Continue for all steps...]**
-
-**Final Assembly:**
-![Final Build](images/final-build.jpg)
-*Caption: Completed project ready for testing*
-
----
-
-### For Scripts/CLI Tools:
-
-#### Command Reference
-
-**Basic Usage:**
-```bash
-python script.py [options] [arguments]
-```
-
-**Available Commands:**
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
-
-**Options:**
-- `-h, --help` - Show help message and exit
-- `-v, --verbose` - Enable verbose output
-- `-o, --output FILE` - Specify output file path
-- `-c, --config FILE` - Specify configuration file
-- `--version` - Show version information
-
-**Examples:**
-
-```bash
-# Example 1: Basic usage
-python script.py input.txt
-
-# Example 2: With verbose output
-python script.py -v input.txt
-
-# Example 3: Specify output file
-python script.py -o output.txt input.txt
-
-# Example 4: Using configuration
-python script.py -c config.json --verbose input.txt
-```
-
-#### Demo Output
-
-**Example 1: Basic Processing**
-
-**Input:**
-```
-This is a sample input file
-with multiple lines of text
-for demonstration purposes
-```
-
-**Command:**
-```bash
-python script.py sample.txt
-```
-
-**Output:**
-```
-Processing: sample.txt
-Lines processed: 3
-Characters counted: 86
-Status: Success
-Output saved to: output.txt
-```
-
-**Example 2: Advanced Usage**
-
-**Input:**
-```json
-{
-  "name": "test",
-  "value": 123
-}
-```
-
-**Command:**
-```bash
-python script.py -v --format json data.json
-```
-
-**Output:**
-```
-[VERBOSE] Loading configuration...
-[VERBOSE] Parsing JSON input...
-[VERBOSE] Processing data...
-{
-  "status": "success",
-  "processed": true,
-  "result": {
-    "name": "test",
-    "value": 123,
-    "timestamp": "2024-02-07T10:30:00"
-  }
-}
-[VERBOSE] Operation completed in 0.23s
-```
-
----
-
-## Project Demo
-
-### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
-
-*Explain what the video demonstrates - key features, user flow, technical highlights*
-
-### Additional Demos
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
-
----
-
-## AI Tools Used (Optional - For Transparency Bonus)
-
-If you used AI tools during development, document them here for transparency:
-
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
-
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
-
-**Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
-
-**Percentage of AI-generated code:** [Approximately X%]
-
-**Human Contributions:**
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
-
-*Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
-
----
-
-## Team Contributions
-
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
-
----
-
-## License
-
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
-
-**Common License Options:**
-- MIT License (Permissive, widely used)
-- Apache 2.0 (Permissive with patent grant)
-- GPL v3 (Copyleft, requires derivative works to be open source)
-
----
+Key Prompts Used:
+
+“Generate a simple habit tracker using HTML, CSS, and JavaScript”
+
+“Fix localStorage issue where habits are not updating correctly”
+
+“Explain workflow for habit tracker website features”
+
+Percentage of AI-generated code: ~40%
+
+Human Contributions:
+
+Architecture design and planning
+
+Core logic implementation (habit creation, streak updates, Focus Mode, rewards)
+
+UI/UX design and testing
+
+Documentation and diagrams
+
+Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!
+
+Team Contributions
+
+[Your Name]: Frontend development, habit logic, dashboard, documentation
+
+[Teammate’s Name]: UI/UX design, Focus Mode & Challenge features, testing, diagrams
+
+License
+
+This project is licensed under the [MIT License] – see the LICENSE
+ file for details.
 
 Made with ❤️ at TinkerHub
